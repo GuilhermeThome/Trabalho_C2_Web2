@@ -9,6 +9,7 @@ Este projeto prático da C2 é a implementação de uma API utilizando NodeJS, T
 - **Prisma**: ORM moderno e intuitivo para NodeJS e TypeScript.
 - **Express**: Framework web rápido, flexível e minimalista para Node.js.
 - **Banco de Dados**: Você pode escolher o banco de dados de sua preferência. A sugestão é utilizar o SQLite.
+- ThunderClient: Extensão para Visual Studio Code utilizada para testar as rotas da API durante o desenvolvimento.
 
 ## Estrutura do Projeto
 
