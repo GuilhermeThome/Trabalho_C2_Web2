@@ -4,11 +4,8 @@ const prisma = new PrismaClient();
 export const getAllPosts = async () => {
   return await prisma.post.findMany({
     include: {
-      author: true,
       comments: {
-        include: {
-          author: true,
-        },
+
       },
     },
   });
@@ -18,7 +15,6 @@ export const getPostById = async (id: number) => {
   return await prisma.post.findUnique({ 
     where: { id },
     include: {
-      author: true,
       comments: {
         include: {
           author: true,

@@ -3,10 +3,7 @@ const prisma = new PrismaClient();
 
 export const getAllComments = async () => {
   return await prisma.comment.findMany({
-    include: {
-      author: true,
-      post: true,
-    },
+
   });
 };
 
@@ -21,6 +18,17 @@ export const getCommentById = async (id: number) => {
 };
 
 export const createComment = async (content: string, postId: number, authorId: number) => {
+  // Verificar se o post existe
+  const post = await prisma.post.findUnique({
+    where: {
+      id: postId,
+    },
+  });
+
+  if (!post) {
+    throw new Error(`Post com ID ${postId} não encontrado`);
+  }
+
   return await prisma.comment.create({
     data: { content, postId, authorId },
     include: {
